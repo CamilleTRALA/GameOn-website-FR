@@ -14,7 +14,8 @@ const formData = document.querySelectorAll(".formData");
 const modalClose = document.querySelectorAll(".close");
 const first = document.getElementById("first");
 const last = document.getElementById("last");
-const form = document.getElementsByName("reserve");
+const form = document.querySelector("form");
+const email = document.getElementById("email");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -24,7 +25,6 @@ modalClose.forEach((btn) => btn.addEventListener("click", closeModal));
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   checkInputs();
 });
 
@@ -38,30 +38,63 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-first.addEventListener("input", validateFirst());
+first.addEventListener("input", (e) => {
+  validateString(first);
+});
+last.addEventListener("input", (e) => {
+  validateString(last);
+});
+email.addEventListener("input", (e) => {
+  validateEmail(email);
+});
 
 function checkInputs() {
-  return (
-    validateFirst() &&
-    validateLast() &&
-    validateEmail() &&
-    validateBirthdate() &&
-    validateQuantity() &&
-    validateLocation() &&
-    validateCheckbox()
-  );
+  input1 = validateString(first);
+  input2 = validateString(last);
+  input3 = validateEmail(email);
+  input4 = validateBirthdate();
+  input5 = validateQuantity();
+  input6 = validateLocation();
+  input7 = validateCheckbox();
+
+  return input1 && input2 && input3 && input4 && input5 && input6 && input7;
 }
 
-function validateFirst() {
-  let x = first.value.trim();
+function validateString(string) {
+  let x = string.value.trim();
   console.log(x);
   if (x.length < 2 || x == null) {
-    first.setAttribute(invalid);
-    first.removeAttribute(valid);
+    string.parentNode.setAttribute("data-error-visible", "true");
     return false;
   } else {
-    first.setAttribute("valid");
-    first.removeAttribute("invalid");
+    string.parentNode.setAttribute("data-error-visible", "false");
     return true;
   }
 }
+
+// Email validation
+
+function validateEmail(email) {
+  let x = email.value.trim();
+  emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (emailRegex.test(x)) {
+    email.parentNode.setAttribute("data-error-visible", "false");
+    return true;
+  } else {
+    email.parentNode.setAttribute("data-error-visible", "true");
+    return false;
+  }
+}
+
+// Birth date validation
+
+function validateBirthdate(birthdate){
+
+  
+}
+
+
+
+// function checkInputs

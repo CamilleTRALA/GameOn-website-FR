@@ -60,7 +60,11 @@
               method="get"
               onsubmit="return validate();"
             >
-              <div class="formData">
+              <div
+                class="formData"
+                data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom."
+                data-error-visible="false"
+              >
                 <label>Prénom</label><br />
                 <input
                   class="text-control"
@@ -70,7 +74,11 @@
                   minlength="2"
                 /><br />
               </div>
-              <div class="formData">
+              <div
+                class="formData"
+                data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom."
+                data-error-visible="false"
+              >
                 <label>Nom</label><br />
                 <input
                   class="text-control"
@@ -79,7 +87,11 @@
                   name="last"
                 /><br />
               </div>
-              <div class="formData">
+              <div
+                class="formData"
+                data-error="Veuillez entrer une adresse email valide."
+                data-error-visible="false"
+              >
                 <label>E-mail</label><br />
                 <input
                   class="text-control"

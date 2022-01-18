@@ -479,13 +479,13 @@ footer {
 
 /* error first name */
 
-form > .formData:nth-of-type(1)::after {
+/* form > .formData:nth-of-type(1)::after {
   content: "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
   display: inline-block;
   color: red;
   font-size: 1rem;
   margin-top: 3px;
-}
+} */
 
 @media screen and (max-width: 800px) {
   .hero-section {
