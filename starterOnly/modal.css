@@ -324,6 +324,7 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 .btn-submit,
+.btn-close,
 .btn-signup {
   background: #fe142f;
   display: block;
@@ -335,6 +336,9 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
+
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -407,7 +411,8 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  height: 70vw;
+  max-height: 65vh;
   border-radius: 10px;
   display: flex;
   overflow: hidden;
@@ -422,6 +427,7 @@ input[data-error]::after {
   text-align: left;
 
   width: 30%;
+  min-width: 350px;
   flex-shrink: 1;
 }
 
@@ -477,6 +483,22 @@ footer {
   margin: 0 20px;
 }
 
+#succes {
+  display: none;
+}
+
+#succes p {
+  text-align: center;
+  font-weight: 400;
+  font-size: 2rem;
+  padding: 300px 60px 300px 60px;
+}
+
+#succes .btn-close {
+text-align: center;
+width: 220px;
+}
+
 /* error first name */
 
 /* form > .formData:nth-of-type(1)::after {
@@ -486,6 +508,12 @@ footer {
   font-size: 1rem;
   margin-top: 3px;
 } */
+
+@media screen and (max-width: 1000px) {
+  .hero-headline {
+    font-size: 3rem;
+  }
+}
 
 @media screen and (max-width: 800px) {
   .hero-section {
