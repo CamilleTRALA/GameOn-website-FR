@@ -22,6 +22,7 @@ const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const locationA = document.getElementById("location");
 const checkbox1 = document.getElementById("checkbox1");
+const checkbox2 = document.getElementById("checkbox2");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -42,6 +43,9 @@ function launchModal() {
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
+  reserve.style.display = "block";
+  succes.style.display = "none";
+  resetDataErrorAll();
 }
 
 first.addEventListener("input", (e) => {
@@ -160,16 +164,39 @@ function validateCheckbox(checkbox1) {
   if (checkbox1.checked) {
     checkbox1.parentNode.setAttribute("data-error-visible", "false");
     return true;
-  }
-  else{
+  } else {
     checkbox1.parentNode.setAttribute("data-error-visible", "true");
     return false;
   }
 }
 
-function validate(){
-  if(checkInputs()){
+function resetInputs() {
+  first.value = "";
+  last.value = "";
+  email.value = "";
+  birthdate.value = "";
+  quantity.value = "";
+  for (let i = 1; i <= locationA.childElementCount / 2; i++) {
+    document.querySelector(`#location input:nth-of-type(${i})`).checked = false;
+  }
+  checkbox1.checked = false;
+  checkbox2.checked = false;
+}
+
+function resetDataErrorAll() {
+  first.parentNode.setAttribute("data-error-visible", "false");
+  last.parentNode.setAttribute("data-error-visible", "false");
+  email.parentNode.setAttribute("data-error-visible", "false");
+  birthdate.parentNode.setAttribute("data-error-visible", "false");
+  quantity.parentNode.setAttribute("data-error-visible", "false");
+  locationA.setAttribute("data-error-visible", "false");
+  checkbox1.parentNode.setAttribute("data-error-visible", "false");
+}
+
+function validate() {
+  if (checkInputs()) {
     reserve.style.display = "none";
     succes.style.display = "block";
+    resetInputs();
   }
 }
