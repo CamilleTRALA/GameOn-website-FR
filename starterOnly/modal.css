@@ -76,6 +76,7 @@ img {
 }
 
 #menu {
+  display: flex;
   list-style-type: none;
   float: right;
 }
@@ -109,7 +110,6 @@ img {
 }
 
 @media screen and (max-width: 540px) {
-
 }
 
 main {
@@ -584,16 +584,15 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
-  .main-navbar #menu{
-    display: flex;
+  .main-navbar #menu {
     flex-direction: column;
     float: none;
-   margin-top: 50px;
-
+    margin-top: 50px;
+    align-items: center;
   }
   .main-navbar input:checked ~ #menu {
     padding-bottom: 220px;
-}
+  }
 }
 
 @keyframes modalopen {
